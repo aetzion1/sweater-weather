@@ -77,7 +77,9 @@ This is the back-end componnet of our service-oriented architecture. The front-e
 ### Built With
 
 * [Ruby on Rails](https://rubyonrails.org/)
-* []()
+  * Ruby 2.4.1
+  * Rails 5.2.3
+* [RSpec]() (version 3.8.2)
 * []()
 
 
