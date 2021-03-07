@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # rails g serializer Movie name year (https://github.com/Netflix/fast_jsonapi)
 gem 'fast_jsonapi'
 
-# gem 'faraday'
+gem 'faraday'
 # gem 'rails-erd'
 # gem 'api_cache'
 
@@ -41,7 +41,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
-  # gem 'figaro'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'figaro'
   # gem 'travis'
 end
 
@@ -55,10 +57,8 @@ group :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'shoulda-matchers'
-  # gem 'vcr'
-  # gem 'webmock'
-  # gem 'figaro'
-  # gem 'travis'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
