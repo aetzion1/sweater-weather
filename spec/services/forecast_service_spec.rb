@@ -28,6 +28,6 @@ RSpec.describe ForecastService do
 
     expect(hourly[0]).to have_key :dt
     expect(hourly[0][:dt]).to be_a(Integer)
-    expect(hourly[0][:conditions]).to be_a(String)
+    expect(hourly[0][:weather][0][:description]).to be_a(String)
   end
 end

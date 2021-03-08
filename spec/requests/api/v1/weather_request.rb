@@ -1,14 +1,15 @@
-require 'reails-helper'
+require 'rails_helper'
 
 describe 'weather api' do
   describe 'forecast happy paths' do
-    it 'sends weather forecast' do
-      get 'api/v1/forecast'
+    it 'sends weather forecast', :vcr do
+      parameters = {location: 'denver, co'}
+      get '/api/v1/forecast', params: parameters
 
       expect(response).to be_successful
 
       forecast = JSON.parse(response.body, symbolize_names: true)
-
+      require 'pry'; binding.pry
       expect(forecast[:data]).to have_key(:id)
       expect(forecast[:data][:id]).to be_eq(null)
       expect(forecast[:data][:type]).to eq('forecast')
