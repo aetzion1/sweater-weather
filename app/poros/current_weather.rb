@@ -1,5 +1,4 @@
 class CurrentWeather
-
   attr_reader :datetime,
               :sunrise,
               :sunset,
@@ -12,9 +11,9 @@ class CurrentWeather
               :icon
 
   def initialize(attributes)
-    @datetime = Time.at(attributes[:dt]).to_s #getlocal.to_s
-    @sunrise = Time.at(attributes[:sunrise]).to_s
-		@sunset = Time.at(attributes[:sunset]).to_s
+    @datetime = Time.at(attributes[:dt]).getlocal.to_s
+    @sunrise = Time.at(attributes[:sunrise]).getlocal.to_s
+		@sunset = Time.at(attributes[:sunset]).getlocal.to_s
 		@temperature = attributes[:temp]
 		@feels_like = attributes[:feels_like]
 		@humidity = attributes[:humidity]

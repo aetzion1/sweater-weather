@@ -14,7 +14,6 @@ class WeatherFacade
 
   def self.get_coordinates(location)
     response = LocationService.coordinates(location)
-    coordinates = response[:results][0][:locations][0][:latLng]
-    # Forecast.new(coordinates)
+    response[:results][0][:locations][0][:latLng]
   end
 end

@@ -7,7 +7,7 @@ class HourlyWeather
 	            :icon
 
 	def initialize(attributes)
-		@time = Time.at(attributes[:dt]).strftime('%H:%M:%S')
+		@time = Time.at(attributes[:dt]).getlocal.strftime('%H:%M:%S')
 		@temperature = attributes[:temp]
 		@conditions = attributes[:weather][0][:description]
 		@icon = attributes[:weather][0][:icon]

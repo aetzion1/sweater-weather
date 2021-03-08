@@ -7,12 +7,12 @@ class ForecastService
       req.params[:exclude] = 'minutely,alerts'
     end
 
-    response = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   private
 
   def self.conn
-    Faraday.new(url: "https://api.openweathermap.org/data/2.5/")
+    Faraday.new(url: 'https://api.openweathermap.org/data/2.5/')
   end
 end
