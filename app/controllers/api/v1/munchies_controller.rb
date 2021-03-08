@@ -1,11 +1,13 @@
 class Api::V1::MunchiesController < ApplicationController
   def recommendation
-    return render json: { error: 'We need more info, please' }, status: '400' unless params[:start, :destination, :food]
+    return render json: { error: 'We need more info, please' }, status: '400' unless params[:start]
+    return render json: { error: 'We need more info, please' }, status: '400' unless params[:destination]
+    return render json: { error: 'We need more info, please' }, status: '400' unless params[:food]
 
-    if forecast_params[:start].present? & forecast_params[:destination].present? & forecast_params[:food].present?
-      recommendation = MunchiesFacade.get_recommendation(recommendation_params)
+    if recommendation_params[:start].present? & recommendation_params[:destination].present? & recommendation_params[:food].present?
+      recommendation = MunchiesFacade.get_recommendation(recommendation_params[:start], recommendation_params[:destination], recommendation_params[:food])
     end
-    render json: (recommendation ? MunchiesSerializer.new(recommendation) : { data: {} })
+    render json: (recommendation ? MunchieSerializer.new(recommendation) : { data: {} })
   end
 
   private
