@@ -3,12 +3,15 @@ class MunchiesFacade
     # DESTINATION CITY
     destination_city = get_destination_city(destination)
     # TRAVEL TIME
+    travel_time = travel_time(start, destination)
     # FORECAST (add exclusions to forecast service if time allows - filter to just current)
     coordinates = get_coordinates(destination)
     response = ForecastService.forecast(coordinates)
     summary_forecast = MunchiesForecast.new(response[:current])
     #RESTAURANT
-    restaurant = Restaurant.new(input)
+    restaurant_data = RestaurantService.get_restaurant(food, coordinates)
+    restaurant = Restaurant.new(restaurant_data)
+    # MUNCHIES
     Munchies.new(destination_city, travel_time, summary_forecast, restaurant)
   end
   
