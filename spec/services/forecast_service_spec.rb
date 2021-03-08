@@ -19,7 +19,7 @@ RSpec.describe ForecastService do
     expect(current).to have_key :dt
     expect(current[:dt]).to be_a(Integer)
     expect(current).to have_key :temp
-    expect(current[:temp]).to be_a(Float)
+    expect(current[:temp]).to be_a(Numeric)
 
     expect(daily[0]).to have_key :dt
     expect(daily[0][:dt]).to be_a(Integer)

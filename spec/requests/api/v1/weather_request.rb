@@ -9,7 +9,7 @@ RSpec.describe 'weather api' do
       expect(response).to be_successful
 
       forecast = JSON.parse(response.body, symbolize_names: true)
-      require 'pry'; binding.pry
+
       expect(forecast[:data]).to have_key(:id)
       expect(forecast[:data][:id]).to eq(nil)
       expect(forecast[:data][:type]).to eq('forecast')
