@@ -4,7 +4,6 @@ RSpec.describe LocationService do
   it 'get latitude and longitude', :vcr do
     location = 'denver, co'
     data = LocationService.coordinates(location)
-    require 'pry'; binding.pry
     expect(data).to be_a(Hash)
     expect(data).to have_key :results
 
