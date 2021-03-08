@@ -7,5 +7,4 @@ class Forecast
     @daily_weather = daily_weather
     @hourly_weather = hourly_weather
   end
-
 end

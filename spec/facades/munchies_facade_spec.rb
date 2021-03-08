@@ -17,8 +17,17 @@ RSpec.describe 'Munchies Facade' do
     expect(recommendation.destination_city).to be_a(String)
     expect(recommendation.destination_city).to eq("Pueblo, CO")
     expect(recommendation.travel_time).to be_a(String)
-    expect(recommendation.travel_time).to eq("2 hours 27 min")
   end
+
+  it 'returns travel time if less than an hour', :vcr do
+    recommendation = MunchiesFacade.get_recommendation(@start, 'littleton, co', @food)
+
+    expect(recommendation).to be_a(Munchies)
+    expect(recommendation.destination_city).to be_a(String)
+    expect(recommendation.destination_city).to eq("Littleton, CO")
+    expect(recommendation.travel_time).to be_a(String)
+  end
+
 
   xit 'returns current forecast at end location', :vcr do
 
