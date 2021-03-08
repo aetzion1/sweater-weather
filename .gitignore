@@ -25,6 +25,8 @@
 # Ignore application configuration
 /config/application.yml
 coverage/
+/coverage
+/coverage/
 /coverage/*
 coverage/*
 spec/fixtures/*

@@ -31,3 +31,4 @@ RSpec.describe 'Munchies Facade' do
     expect(recommendation.travel_time).to be_a(String)
   end
 end
+

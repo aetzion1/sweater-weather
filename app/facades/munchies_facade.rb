@@ -3,7 +3,7 @@ class MunchiesFacade
     def get_recommendation(start, destination, food)
       destination_city = get_destination_city(destination)
 
-      seconds = travel_time(start, destination)
+      seconds = RestaurantService.travel_time(start, destination)
       travel_time = time_to_string(seconds)
 
       coordinates = get_coordinates(destination)
@@ -31,18 +31,6 @@ class MunchiesFacade
       "#{city}, #{state}"
     end
 
-    # MOVE TO SERVICE IF TIME ALLOWS
-    def travel_time(start, destination)
-      response = map_quest_conn.get('route') do |req|
-        req.params[:from] = start
-        req.params[:to] = destination
-      end
-
-      data = JSON.parse(response.body, symbolize_names: true)
-
-      data[:route][:realTime]
-    end
-
     def time_to_string(seconds)
       minutes = seconds / 60
       hours = minutes / 60
@@ -50,13 +38,6 @@ class MunchiesFacade
       
       return "#{hours} hours #{remainder} min" if hours.positive?
       "#{minutes} min"
-    end
-
-    def map_quest_conn
-      Faraday.new(
-        url: 'http://www.mapquestapi.com/directions/v2/',
-        params: { key: ENV['MAPQUEST_GEOCODING_API_KEY'] }
-      )
     end
   end
 end
