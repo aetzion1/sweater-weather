@@ -8,10 +8,9 @@ class RestaurantService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  private
-
   def self.conn
     Faraday.new(url: 'https://api.yelp.com/v3/') do |req|
       req.headers["Authorization"] = ENV['YELP_FUSION_API_KEY']
+    end
   end
 end

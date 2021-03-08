@@ -19,7 +19,7 @@ RSpec.describe 'Weather Facade' do
     expect(forecast.current_weather.datetime).to be_a(String)
     expect(forecast.current_weather.sunrise).to be_a(String)
     expect(forecast.current_weather.sunset).to be_a(String)
-    expect(forecast.current_weather.temperature).to be_a(Float)
+    expect(forecast.current_weather.temperature).to be_a(Numeric)
     expect(forecast.current_weather.feels_like).to be_a(Float)
     expect(forecast.current_weather.humidity).to be_a(Integer)
     expect(forecast.current_weather.uvi).to be_a(Float)
@@ -42,7 +42,7 @@ RSpec.describe 'Weather Facade' do
     expect(forecast.hourly_weather.count).to eq(8)
     expect(forecast.hourly_weather[0]).to be_a(HourlyWeather)
     expect(forecast.hourly_weather[0].time).to be_a(String)
-    expect(forecast.hourly_weather[0].temperature).to be_a(Float)
+    expect(forecast.hourly_weather[0].temperature).to be_a(Numeric)
     expect(forecast.hourly_weather[0].conditions).to be_a(String)
     expect(forecast.hourly_weather[0].icon).to be_a(String)
   end

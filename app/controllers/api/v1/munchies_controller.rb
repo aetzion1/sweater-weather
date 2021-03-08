@@ -3,7 +3,7 @@ class Api::V1::MunchiesController < ApplicationController
     return render json: { error: 'We need more info, please' }, status: '400' unless params[:start, :destination, :food]
 
     if forecast_params[:start].present? & forecast_params[:destination].present? & forecast_params[:food].present?
-      recommendation = MunchiesFacade.get_recommendation(forecast_params)
+      recommendation = MunchiesFacade.get_recommendation(recommendation_params)
     end
     render json: (recommendation ? MunchiesSerializer.new(recommendation) : { data: {} })
   end
