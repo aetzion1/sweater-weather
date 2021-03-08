@@ -1,9 +1,11 @@
 class Forecast
-  attr_reader :latitude, :longitude
+  attr_reader :id, :current_weather, :daily_weather, :hourly_weather
 
-  def initialize(attributes)
-    require 'pry'; binding.pry
-    @latitude = attributes[:lat]
-    @longitude = attributes[:lng]
+  def initialize(current_weather, daily_weather, hourly_weather)
+    @id = nil
+    @current_weather = current_weather
+    @daily_weather = daily_weather
+    @hourly_weather = hourly_weather
   end
+
 end
