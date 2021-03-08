@@ -5,6 +5,7 @@ RSpec.describe 'Weather Facade' do
     location = 'denver, co'
 
     coordinates = WeatherFacade.get_coordinates(location)
+
     expect(coordinates).to be_a(Hash)
     expect(coordinates[:lat]).to be_a(Float)
     expect(coordinates[:lng]).to be_a(Float)

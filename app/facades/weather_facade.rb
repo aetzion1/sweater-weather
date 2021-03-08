@@ -14,6 +14,7 @@ class WeatherFacade
 
   def self.get_coordinates(location)
     response = LocationService.coordinates(location)
-    response[:results][0][:locations][0][:latLng]
+    coordinates = response[:results][0][:locations][0][:latLng]
+    coordinates != { lat: 39.390897, lng: -99.066067 } ? coordinates : nil
   end
 end

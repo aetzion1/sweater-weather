@@ -1,9 +1,8 @@
 class Api::V1::WeatherController < ApplicationController
   def forecast
-    return render json: { error: 'Specify a location' }, status: '400' unless params[:location]
-    
-    forecast = WeatherFacade.get_forecast(forecast_params[:location]) if forecast_params[:location].present?
-    render json: (forecast ? ForecastSerializer.new(forecast) : { data: {} })
+    return render_invalid_parameters if !(params[:location].present?)
+    forecast = WeatherFacade.get_forecast(forecast_params[:location])
+    render json: ForecastSerializer.new(forecast)
   end
 
   private
