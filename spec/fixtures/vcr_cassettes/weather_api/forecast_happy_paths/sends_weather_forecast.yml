@@ -61,7 +61,7 @@ http_interactions:
   recorded_at: Mon, 08 Mar 2021 04:42:50 GMT
 - request:
     method: get
-    uri: https://api.openweathermap.org/data/2.5/onecall?appid=56ab0158e484c4b7db0587b0e35381cb&exclude=minutely,alerts&lat=39.738453&lon=-104.984853
+    uri: https://api.openweathermap.org/data/2.5/onecall?appid=DONT_SHARE_MY_OPENWEATHER_KEY&exclude=minutely,alerts&lat=39.738453&lon=-104.984853
     body:
       encoding: US-ASCII
       string: ''
