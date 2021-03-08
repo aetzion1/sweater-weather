@@ -7,9 +7,9 @@ RSpec.describe 'munchies api' do
       get '/api/v1/munchies', params: parameters
 
       expect(response).to be_successful
-
+      
       recommendation = JSON.parse(response.body, symbolize_names: true)
-      require 'pry'; binding.pry
+
       expect(recommendation[:data]).to have_key(:id)
       expect(recommendation[:data][:id]).to eq(nil)
       expect(recommendation[:data][:type]).to eq('munchie')
