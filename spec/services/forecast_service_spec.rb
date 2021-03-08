@@ -18,16 +18,16 @@ RSpec.describe ForecastService do
     hourly = data[:hourly]
 
     expect(current).to have_key :dt
-    expect(current[:dt]).to be_a(Float)
+    expect(current[:dt]).to be_a(Integer)
     expect(current).to have_key :temp
     expect(current[:temp]).to be_a(Float)
 
     expect(daily).to have_key :dt
-    expect(daily[:dt]).to be_a(Float)
+    expect(daily[:dt]).to be_a(Integer)
     expect(daily).to have_key :sunrise
     expect(daily[:sunrise]).to be_a(Float)
 
     expect(hourly).to have_key :dt
-    expect(hourly[:dt]).to be_a(Float)
+    expect(hourly[:dt]).to be_a(Integer)
   end
 end

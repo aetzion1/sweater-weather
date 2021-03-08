@@ -217,11 +217,68 @@
           null
         ]
       },
-      "/Users/adam/turing/3module/projects/sweater-weather/spec/services/location_service_spec.rb": {
+      "/Users/adam/turing/3module/projects/sweater-weather/spec/services/forecast_service_spec.rb": {
         "lines": [
           1,
           null,
           1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/adam/turing/3module/projects/sweater-weather/app/services/forecast_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/adam/turing/3module/projects/sweater-weather/spec/services/location_service_spec.rb": {
+        "lines": [
+          1,
+          null,
           1,
           1,
           1,
@@ -290,12 +347,11 @@
           1,
           1,
           1,
-          1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1615157550
+    "timestamp": 1615162384
   }
 }
