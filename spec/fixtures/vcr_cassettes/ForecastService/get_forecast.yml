@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openweathermap.org/data/2.5/onecall?appid=56ab0158e484c4b7db0587b0e35381cb&exclude=minutely,alerts&lat=39.738453&lon=-104.984853
+    uri: https://api.openweathermap.org/data/2.5/onecall?appid=DONT_SHARE_MY_OPENWEATHER_KEY&exclude=minutely,alerts&lat=39.738453&lon=-104.984853
     body:
       encoding: US-ASCII
       string: ''
