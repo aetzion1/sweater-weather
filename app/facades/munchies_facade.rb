@@ -3,13 +3,15 @@ class MunchiesFacade
     def get_recommendation(start, destination, food)
       destination_city = get_destination_city(destination)
 
-      travel_time = travel_time(start, destination)
+      seconds = travel_time(start, destination)
+      travel_time = time_to_string(seconds)
 
       coordinates = get_coordinates(destination)
       response = ForecastService.forecast(coordinates)
       summary_forecast = MunchiesForecast.new(response[:current])
 
-      restaurant_data = RestaurantService.get_restaurant(food, coordinates)
+      arrival_time = Time.at(((Time.now + seconds).to_r / (30*60)).round * (30*60))
+      restaurant_data = RestaurantService.get_restaurant(food, coordinates, arrival_time)
       restaurant = Restaurant.new(restaurant_data)
 
       Munchies.new(destination_city, travel_time, summary_forecast, restaurant)
@@ -37,7 +39,11 @@ class MunchiesFacade
       end
 
       data = JSON.parse(response.body, symbolize_names: true)
-      seconds = data[:route][:realTime]
+
+      data[:route][:realTime]
+    end
+
+    def time_to_string(seconds)
       minutes = seconds / 60
       hours = minutes / 60
       remainder = minutes % 60

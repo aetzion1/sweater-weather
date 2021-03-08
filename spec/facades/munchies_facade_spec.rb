@@ -6,17 +6,20 @@ RSpec.describe 'Munchies Facade' do
     @destination = 'pueblo, co'
     @food = 'hamburgers'
   end
-
-  xit 'returns all recommendation info', :vcr do
-  end
   
-  it 'returns travel time', :vcr do
+  it 'returns travel time, forecast', :vcr do
     recommendation = MunchiesFacade.get_recommendation(@start, @destination, @food)
 
     expect(recommendation).to be_a(Munchies)
     expect(recommendation.destination_city).to be_a(String)
     expect(recommendation.destination_city).to eq("Pueblo, CO")
     expect(recommendation.travel_time).to be_a(String)
+    expect(recommendation.forecast).to be_a(MunchiesForecast)
+    expect(recommendation.forecast.summary).to be_a(String)
+    expect(recommendation.forecast.temperature).to be_a(Numeric)
+    expect(recommendation.restaurant).to be_a(Restaurant)
+    expect(recommendation.restaurant.name).to be_a(String)
+    expect(recommendation.restaurant.address[0]).to be_a(String)
   end
 
   it 'returns travel time if less than an hour', :vcr do
@@ -26,15 +29,5 @@ RSpec.describe 'Munchies Facade' do
     expect(recommendation.destination_city).to be_a(String)
     expect(recommendation.destination_city).to eq("Littleton, CO")
     expect(recommendation.travel_time).to be_a(String)
-  end
-
-
-  xit 'returns current forecast at end location', :vcr do
-
-  end
-
-  xit 'returns restaurant name and address', :vcr do
-  #   restaurant = WeatherFacade.get_restaurant(location)
-    # expect(forecast).to be_a(Forecast)
   end
 end

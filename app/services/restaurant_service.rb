@@ -1,9 +1,10 @@
 class RestaurantService
-  def self.get_restaurant(food, coordinates)
+  def self.get_restaurant(food, coordinates, arrival_time)
     response = conn.get('businesses/search') do |req|
       req.params['term'] = food.downcase
       req.params['latitude'] = coordinates[:lat]
       req.params['longitude'] = coordinates[:lng]
+      req.params['open_at'] = arrival_time.to_i.to_s
     end
     JSON.parse(response.body, symbolize_names: true)
   end
