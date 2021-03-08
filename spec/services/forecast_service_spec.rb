@@ -7,12 +7,11 @@ RSpec.describe ForecastService do
       "lng": -104.984853
     }
     data = ForecastService.forecast(coordinates)
-    require 'pry'; binding.pry
     expect(data).to be_a(Hash)
     expect(data).to have_key :current
     expect(data).to have_key :daily
     expect(data).to have_key :hourly
-
+    
     current = data[:current]
     daily = data[:daily]
     hourly = data[:hourly]
@@ -22,12 +21,13 @@ RSpec.describe ForecastService do
     expect(current).to have_key :temp
     expect(current[:temp]).to be_a(Float)
 
-    expect(daily).to have_key :dt
-    expect(daily[:dt]).to be_a(Integer)
-    expect(daily).to have_key :sunrise
-    expect(daily[:sunrise]).to be_a(Float)
+    expect(daily[0]).to have_key :dt
+    expect(daily[0][:dt]).to be_a(Integer)
+    expect(daily[0]).to have_key :sunrise
+    expect(daily[0][:sunrise]).to be_a(Integer)
 
-    expect(hourly).to have_key :dt
-    expect(hourly[:dt]).to be_a(Integer)
+    expect(hourly[0]).to have_key :dt
+    expect(hourly[0][:dt]).to be_a(Integer)
+    expect(hourly[0][:conditions]).to be_a(String)
   end
 end
