@@ -10,7 +10,8 @@ describe User, type: :model do
   describe "registration happy paths" do
     it "ensures email is case insensitive" do
       email = 'EXAMPLE@eXaMpLe.CoM'
- 
+      user = User.create!(email: email, password: 'password', password_confirmation: 'password')
+
       expect(user.email).to eq('example@example.com')
     end
   end

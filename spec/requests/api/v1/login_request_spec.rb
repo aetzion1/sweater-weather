@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe "login API" do
+  before :each do
+    @user = User.create!(email: "whatever@example.com", password: 'password', password_confirmation: 'password')
+  end
+
 	describe "login happy paths" do
 		it "logs a user in based on specific input", :vcr do
 			headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
@@ -11,25 +15,20 @@ describe "login API" do
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
       expect(response).to be_successful
-      expect(response.status).to eq(201)
+      expect(response.status).to eq(200)
 
       # expect(User.count).to eq(1)
       # expect(User.last.email).to eq("whatever@example.com")
 
       session = JSON.parse(response.body, symbolize_names: true)
-      expect(session[:data][:id]).to eq(session.last.id.to_s)
+      expect(session[:data][:id]).to eq(@user.id.to_s)
       expect(session[:data][:type]).to eq('users')
-      expect(session[:data][:type]).to eq('users')
-      # expect(session[:data][:attributes][:email]).to eq(User.last.email)
-      # expect(session[:data][:attributes][:api_key]).to eq(User.last.api_key)
+      expect(session[:data][:attributes][:email]).to eq(@user.email)
+      expect(session[:data][:attributes][:api_key]).to eq(@user.api_key)
     end
   end
 
   describe "login sad paths" do
-    before :each do
-      @user = User.new(email: "example@example.com", password: 'password', password_confirmation: 'password')
-    end
-    
     it 'returns an error if header ACCEPT is missing' do 
       headers = {'CONTENT_TYPE' => 'application/json'}
       body = {
@@ -37,7 +36,6 @@ describe "login API" do
         "password": "password",
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
-
 
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
@@ -70,7 +68,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       post '/api/v1/sessions', headers: headers
   
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(404)
       errors = JSON.parse(response.body, symbolize_names: true)
   
       expect(errors).to be_a(Hash)
@@ -88,7 +86,7 @@ describe "login API" do
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
   
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(404)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)
@@ -119,7 +117,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "password",
+        "password": "paSsword",
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -142,7 +140,7 @@ describe "login API" do
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
   
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(404)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)
