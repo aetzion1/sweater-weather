@@ -68,7 +68,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       post '/api/v1/sessions', headers: headers
   
-      expect(response.status).to eq(404)
+      expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
   
       expect(errors).to be_a(Hash)
@@ -86,7 +86,7 @@ describe "login API" do
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
   
-      expect(response.status).to eq(404)
+      expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)
@@ -140,7 +140,7 @@ describe "login API" do
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
   
-      expect(response.status).to eq(404)
+      expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)
