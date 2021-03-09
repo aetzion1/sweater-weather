@@ -16,7 +16,7 @@ describe "road trip API" do
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
       expect(response).to be_successful
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(204)
 
       session = JSON.parse(response.body, symbolize_names: true)
       expect(session[:data][:id]).to eq(nil)
