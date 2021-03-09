@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    return render_invalid_parameters('No parameters required, please') unless request.query_parameters.blank?
+    return render_invalid_parameters('No parameters required, please') if request.query_parameters.present?
 
     user = User.new(user_params)
     if user.save
@@ -15,5 +15,4 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
-
 end

@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }, presence: true
-  validates_presence_of :password
-  validates_presence_of :password_confirmation
-  validates :password, confirmation: { case_sensitive: true }
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
 
   has_secure_password
   has_secure_token :api_key
