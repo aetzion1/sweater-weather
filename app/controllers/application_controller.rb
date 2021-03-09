@@ -20,6 +20,10 @@ class ApplicationController < ActionController::API
     render json: ErrorSerializer.serialize('Apologies, our external API is unavailable'), status: :service_unavailable
   end
 
+  def render_invalid_user
+    render json: ErrorSerializer.serialize('Invalid user input'), status: :bad_request
+  end
+
   def validate_headers
     valid_content_type = request.content_type == 'application/json'
     valid_accept = request.accept == 'application/json'

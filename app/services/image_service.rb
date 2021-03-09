@@ -3,7 +3,6 @@ class ImageService
     def call(location)
       response = conn.get('/photos/random') do |req|
         req.params['query'] = location.downcase
-        # req.params['count'] = 1
       end
       JSON.parse(response.body, symbolize_names: true)
     end

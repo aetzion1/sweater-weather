@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Weather Facade' do
-  it 'returns latitude and longitude for a location', :vcr do
-    location = 'denver, co'
+  # it 'returns latitude and longitude for a location', :vcr do
+  #   location = 'denver, co'
 
-    coordinates = WeatherFacade.get_coordinates(location)
-
-    expect(coordinates).to be_a(Hash)
-    expect(coordinates[:lat]).to be_a(Float)
-    expect(coordinates[:lng]).to be_a(Float)
-  end
+  #   coordinates = WeatherFacade.get_coordinates(location)
+  ##   expect(WeatherFacade.send(:get_coordinates(location))).to eq("get_coordinates")
+  #   expect(coordinates).to be_a(Hash)
+  #   expect(coordinates[:lat]).to be_a(Float)
+  #   expect(coordinates[:lng]).to be_a(Float)
+  # end
 
   it 'returns forecast data', :vcr do
     location = 'denver, co'
