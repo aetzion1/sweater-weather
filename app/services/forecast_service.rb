@@ -7,7 +7,6 @@ class ForecastService
         req.params[:lon] = coordinates[:lng]
         req.params[:exclude] = 'minutely,alerts'
       end
-
       JSON.parse(response.body, symbolize_names: true)
     end
 
