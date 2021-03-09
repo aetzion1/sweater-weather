@@ -1,7 +1,7 @@
 require: rubocop-rails
 
 AllCops:
-NewCops: enable
+  NewCops: enable
   Exclude:
     - 'bin/**/*'
     - 'config/**/*'

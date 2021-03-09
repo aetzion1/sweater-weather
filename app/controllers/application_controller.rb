@@ -25,5 +25,4 @@ class ApplicationController < ActionController::API
     valid_accept = request.accept == 'application/json'
     render_invalid_headers unless valid_content_type && valid_accept
   end
-
 end
