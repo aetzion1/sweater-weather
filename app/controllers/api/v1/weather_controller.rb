@@ -5,6 +5,9 @@ class Api::V1::WeatherController < ApplicationController
     render json: ForecastSerializer.new(forecast)
   end
 
+  def background
+  end
+
   private
 
   def forecast_params
