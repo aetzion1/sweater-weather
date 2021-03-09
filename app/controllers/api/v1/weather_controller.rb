@@ -8,7 +8,7 @@ class Api::V1::WeatherController < ApplicationController
   def background
     return render_invalid_parameters if !(params[:location].present?)
     background = WeatherFacade.get_image(weather_params[:location])
-    render json: BackgroundSerializer.new(background)
+    render json: ImageSerializer.new(background)
   end
 
   private
