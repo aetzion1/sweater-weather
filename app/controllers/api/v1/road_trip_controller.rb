@@ -1,7 +1,6 @@
 class Api::V1::RoadTripController < ApplicationController
   def create
     return render_invalid_parameters('No parameters required, please') if request.query_parameters.present?
-    # wouldnt it be better to just ignore the params, rather than make invalid? ^ ^ ^
     return render_invalid_api if User.find_by(api_key: road_trip_params[:api_key]).nil?
     return render_invalid_parameters if road_trip_params[:origin].blank?
     return render_invalid_parameters if road_trip_params[:destination].blank?

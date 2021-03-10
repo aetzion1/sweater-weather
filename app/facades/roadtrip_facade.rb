@@ -15,6 +15,7 @@ class RoadtripFacade
 
     def roadtrip_forecast(coordinates, formatted_time)
       return {} if formatted_time == 'impossible'
+
       forecast_at_eta = ForecastService.future_forecast(coordinates, formatted_time)
       RoadtripForecast.new(forecast_at_eta)
     end
