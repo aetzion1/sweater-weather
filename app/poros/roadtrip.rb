@@ -8,5 +8,4 @@ class Roadtrip
     @travel_time = travel_time
     @weather_at_eta = weather_at_eta
   end
-
 end
