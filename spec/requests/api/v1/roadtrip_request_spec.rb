@@ -16,13 +16,13 @@ describe "road trip API" do
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
       expect(response).to be_successful
-      expect(response.status).to eq(204)
+      expect(response.status).to eq(201)
 
       session = JSON.parse(response.body, symbolize_names: true)
       expect(session[:data][:id]).to eq(nil)
       expect(session[:data][:type]).to eq('roadtrip')
       expect(session[:data][:attributes][:start_city]).to eq("Denver, CO")
-      expect(session[:data][:attributes][:end_city]).to eq("Estes Park, CO")
+      expect(session[:data][:attributes][:end_city]).to eq("Pueblo, CO")
       expect(session[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
       expect(session[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
@@ -56,7 +56,6 @@ describe "road trip API" do
       }
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
-
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
 
@@ -70,7 +69,7 @@ describe "road trip API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       post '/api/v1/road_trip', headers: headers
   
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       errors = JSON.parse(response.body, symbolize_names: true)
   
       expect(errors).to be_a(Hash)
@@ -88,7 +87,6 @@ describe "road trip API" do
       }
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
-  
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
 
@@ -107,7 +105,6 @@ describe "road trip API" do
       }
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
-  
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body, symbolize_names: true)
 
@@ -127,7 +124,7 @@ describe "road trip API" do
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
   
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)
@@ -145,8 +142,7 @@ describe "road trip API" do
       }
       post '/api/v1/road_trip', params: body.to_json, headers: headers
 
-  
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       errors = JSON.parse(response.body, symbolize_names: true)
 
       expect(errors).to be_a(Hash)

@@ -23,7 +23,11 @@ class ApplicationController < ActionController::API
   def render_invalid_user
     render json: ErrorSerializer.serialize('Invalid user input'), status: :bad_request
   end
-
+  
+  def render_invalid_api
+    render json: ErrorSerializer.serialize('Invalid api key'), status: :unauthorized
+  end
+  
   def validate_headers
     valid_content_type = request.content_type == 'application/json'
     valid_accept = request.accept == 'application/json'

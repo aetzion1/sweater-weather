@@ -1,4 +1,4 @@
-class RestaurantService
+class TravelService
   class << self
     def travel_time(origin, destination)
       response = map_quest_conn.get('route') do |req|

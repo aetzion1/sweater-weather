@@ -1,4 +1,4 @@
-class RoadTripForecast
+class RoadtripForecast
   attr_reader :temperature,
               :conditions
 

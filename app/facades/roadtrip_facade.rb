@@ -1,4 +1,4 @@
-class RoadTripFacade
+class RoadtripFacade
   class << self
     def get_roadtrip(origin, destination)
       start_city = get_city_state(origin)
@@ -9,11 +9,11 @@ class RoadTripFacade
 
       coordinates = get_coordinates(destination)
       response = ForecastService.forecast(coordinates)
-      weather_at_eta = RoadTripForecast.new(response[:current])
+      weather_at_eta = RoadtripForecast.new(response[:current])
 
       arrival_time = Time.at(((Time.now + seconds).to_r / (30*60)).round * (30*60))
 
-      RoadTrip.new(start_city, end_city, travel_time, weather_at_eta)
+      Roadtrip.new(start_city, end_city, travel_time, weather_at_eta)
     end
 
     private
