@@ -1,13 +1,6 @@
 <!-- We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use. -->
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -49,6 +42,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#learning-goals">Learning Goals</a></li>
       </ul>
     </li>
     <li>
@@ -73,8 +67,17 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-Sweater Weather is an application that allows users to plan road trips, mainly by providing access t the current weather as well as the forecasted weather at their destination.
-This is the back-end componnet of our service-oriented architecture. The front-end communicates with this back-end via an API. This repository exposes that API to meet the front-end requirements.
+Sweater Weather is an application that allows users to plan road trips, mainly by providing access to the current weather as well as the forecasted weather at their destination.
+This is the back-end component of the service-oriented architecture. The front-end communicates with this back-end via an API. This repository exposes that API to meet the front-end requirements.
+
+### Learning Goals
+
+This back-end application was created with the following learning goals in mind:
+- [x] Expose an API that aggregates data from multiple external APIs
+- [x] Expose an API that requires an authentication token
+- [x] Expose an API for CRUD functionality
+- [x] Determine completion criteria based on the needs of other developers
+- [x] Research, select, and consume an API based on your needs as a developer
 
 ### Built With
 
@@ -84,8 +87,6 @@ This is the back-end componnet of our service-oriented architecture. The front-e
 * [RSpec]() (version 3.8.2)
 * []()
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -93,40 +94,46 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* ruby 2.4.1
+* rails 5.2.3
+* rspec 3.8.2
 
-### Installation
+### Setup
 
 1. Clone the repo
    ```sh
    git clone https://github.com/aetzion1/sweater-weather.git
    ```
-2. Install NPM packages
+2. Install gems
    ```sh
-   npm install
+   bundle install
    ```
+3. Create and migrate database
+  `rails db:create`
+  `rails db:migrate`
+4. Register for API keys and add to application.yml
+  * [MapQuestGeocoding] (https://developer.mapquest.com/documentation/geocoding-api/) Used to get coordinates based on search criteria
+  * [OpenWeatherOneCall] (https://openweathermap.org/api/one-call-api) Used to get forecast data based on specific coordinates
+  * [Unsplash] (https://unsplash.com/documentation#creating-a-developer-account) Used to pull images based on location query paramters
 
-
+## Gems worth researchin
+* [Faraday](https://github.com/lostisland/faraday)
+* [Fast JSON API](https://github.com/Netflix/fast_jsonapi)
+* [Webmock] (https://github.com/webmock/webmock)
+* [VCR] (https://github.com/vcr/vcr)
+* [Figaro] (https://github.com/laserlemon/figaro)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+### Endpoints
+[Endpoints Markdown](https://github.com/aetzion1/sweater-weather/blob/main/endpoints.md) <br>
+[Postman Collection](https://github.com/aetzion1/sweater-weather/blob/main/sweater-weather.postman_collection.json)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/aetzion1/sweater-weather/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -160,25 +167,22 @@ Project Link: [github.com/aetzion1/sweater-weather](https://github.com/aetzion1/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
-
-
-
+* [MapQuest] (https://developer.mapquest.com/documentation/geocoding-api/)
+* [OpenWeather] (https://openweathermap.org/api/one-call-api)
+* [Unsplash](https://unsplash.com/documentation#creating-a-developer-account)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/aetzion1/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/aetzion1/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/aetzion1/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/aetzion1/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/aetzion1/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/aetzion1/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/aetzion1/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/aetzion1/repo/issues
-[license-shield]: https://img.shields.io/github/license/aetzion1/repo.svg?style=for-the-badge
-[license-url]: https://github.com/aetzion1/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/aetzion1/sweater-weather.svg?style=for-the-badge
+[contributors-url]: https://github.com/aetzion1/sweater-weather/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/aetzion1/sweater-weather.svg?style=for-the-badge
+[forks-url]: https://github.com/aetzion1/sweater-weather/network/members
+[stars-shield]: https://img.shields.io/github/stars/aetzion1/sweater-weather.svg?style=for-the-badge
+[stars-url]: https://github.com/aetzion1/sweater-weather/stargazers
+[issues-shield]: https://img.shields.io/github/issues/aetzion1/sweater-weather.svg?style=for-the-badge
+[issues-url]: https://github.com/aetzion1/sweater-weather/issues
+[license-shield]: https://img.shields.io/github/license/aetzion1/sweater-weather.svg?style=for-the-badge
+[license-url]: https://github.com/aetzion1/sweater-weather/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/adametzion
