@@ -6,7 +6,8 @@ class TravelService
         req.params[:to] = destination
       end
       data = JSON.parse(response.body, symbolize_names: true)
-      data[:route][:realTime]
+      return "impossible" if data[:route][:routeError][:errorCode] == 2
+      data[:route][:formattedTime]
     end
 
     def map_quest_conn
