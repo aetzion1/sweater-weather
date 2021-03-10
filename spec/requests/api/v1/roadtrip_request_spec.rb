@@ -6,7 +6,7 @@ describe "road trip API" do
   end
 
 	describe "road trip happy paths" do
-		it "logs a user in based on specific input", :vcr do
+		it "provides roadtrip data for trips that take 1+ hours", :vcr do
 			headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "origin": "Denver,CO",
@@ -23,6 +23,27 @@ describe "road trip API" do
       expect(session[:data][:type]).to eq('roadtrip')
       expect(session[:data][:attributes][:start_city]).to eq("Denver, CO")
       expect(session[:data][:attributes][:end_city]).to eq("Pueblo, CO")
+      expect(session[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
+      expect(session[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
+    end
+    
+		it "provides roadtrip data for trips that take < an hour", :vcr do
+			headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+      body = {
+        "origin": "Denver,CO",
+        "destination": "Westminster,CO",
+        "api_key": "#{@user.api_key}"
+      }
+      post '/api/v1/road_trip', params: body.to_json, headers: headers
+
+      expect(response).to be_successful
+      expect(response.status).to eq(201)
+
+      session = JSON.parse(response.body, symbolize_names: true)
+      expect(session[:data][:id]).to eq(nil)
+      expect(session[:data][:type]).to eq('roadtrip')
+      expect(session[:data][:attributes][:start_city]).to eq("Denver, CO")
+      expect(session[:data][:attributes][:end_city]).to eq("Westminster, CO")
       expect(session[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
       expect(session[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
