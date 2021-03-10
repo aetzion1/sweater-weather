@@ -1,4 +1,3 @@
-<!-- We would like to see a README file included in your project that outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use. -->
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
@@ -13,9 +12,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/aetzion1/sweater-weather">
+  <!-- <a href="https://github.com/aetzion1/sweater-weather">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">Sweater Weather</h3>
 
@@ -127,8 +126,9 @@ To get a local copy up and running follow these simple steps.
 ## Usage
 
 ### Endpoints
-[Endpoints Markdown](https://github.com/aetzion1/sweater-weather/blob/main/endpoints.md) <br>
-[Postman Collection](https://github.com/aetzion1/sweater-weather/blob/main/sweater-weather.postman_collection.json)
+The endpoints utilized to design this applciation can be [found_here](https://backend.turing.io/module3/projects/sweater_weather/requirements)
+
+The [Postman](https://www.postman.com/) service can be used to test the above endpoints locally. You can import the following [pre-built_collection](https://github.com/aetzion1/sweater-weather/blob/main/sweater-weather.postman_collection.json) directly into Postman.
 
 <!-- ROADMAP -->
 ## Roadmap
