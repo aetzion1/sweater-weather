@@ -114,6 +114,40 @@ describe "road trip API" do
       expect(errors[:errors][0]).to be_a(String)
     end
     
+    it 'returns an error if origin is missing' do
+      headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+      body = {
+        "destination": "Denver,CO",
+        "api_key": "#{@user.api_key}"
+      }
+      post '/api/v1/road_trip', params: body.to_json, headers: headers
+
+      expect(response.status).to eq(400)
+      errors = JSON.parse(response.body, symbolize_names: true)
+
+      expect(errors).to be_a(Hash)
+      expect(errors).to have_key(:errors)
+      expect(errors[:errors]).to be_an(Array)
+      expect(errors[:errors][0]).to be_a(String)
+    end
+    
+    it 'returns an error if destination is missing' do
+      headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+      body = {
+        "origin": "Denver,CO",
+        "api_key": "#{@user.api_key}"
+      }
+      post '/api/v1/road_trip', params: body.to_json, headers: headers
+
+      expect(response.status).to eq(400)
+      errors = JSON.parse(response.body, symbolize_names: true)
+
+      expect(errors).to be_a(Hash)
+      expect(errors).to have_key(:errors)
+      expect(errors[:errors]).to be_an(Array)
+      expect(errors[:errors][0]).to be_a(String)
+    end
+    
     it 'returns an error if api_key is blank' do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body =   {
