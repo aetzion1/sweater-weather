@@ -10,15 +10,12 @@ describe "login API" do
 			headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
-
-      # expect(User.count).to eq(1)
-      # expect(User.last.email).to eq("whatever@example.com")
 
       session = JSON.parse(response.body, symbolize_names: true)
       expect(session[:data][:id]).to eq(@user.id.to_s)
@@ -33,7 +30,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -50,7 +47,7 @@ describe "login API" do
       headers = {'ACCEPT' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -81,7 +78,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -117,7 +114,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "paSsword",
+        "password": "paSsword"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -131,11 +128,11 @@ describe "login API" do
       expect(errors[:errors][0]).to be_a(String)
     end
     
-    it 'returns an error if user doesnt exist do not match' do
+    it 'returns an error if user doesnt exist' do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "whateverdude@example.com",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions', params: body.to_json, headers: headers
 
@@ -153,7 +150,7 @@ describe "login API" do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       body = {
         "email": "whatever@example.com",
-        "password": "password",
+        "password": "password"
       }
       post '/api/v1/sessions?email=maliciousturtle@example.com', params: body.to_json, headers: headers
   

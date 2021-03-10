@@ -1,5 +1,11 @@
 class ForecastService
   class << self
+    def future_forecast(coordinates, formatted_time)
+      hours = formatted_time[0..1].to_i
+      forecast = forecast(coordinates)
+      forecast[:hourly][hours]
+    end
+
     def forecast(coordinates)
       response = conn.get('onecall') do |req|
         req.params[:appid] = ENV['OPENWEATHER_ONECALL_API_KEY']
