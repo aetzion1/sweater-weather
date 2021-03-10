@@ -44,7 +44,8 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'figaro'
-  # gem 'travis'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do

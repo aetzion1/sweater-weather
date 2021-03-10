@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "9af34694-eef4-4344-841e-92518bca32bd",
+		"name": "sweater-weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SW weather request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/forecast?location=denver, co",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "denver, co"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW background request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/backgrounds?location=denver, co",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"backgrounds"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "denver, co"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW user registration request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"whatever@example.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW user login request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"whatever@example.com\",\n  \"password\": \"password\",\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW roadtrip request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin\": \"New York, NY\",\n  \"destination\": \"Los Angeles,CA\",\n  \"api_key\": \"ySVULKJocxN9NhyDBv6f52Dn\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/road_trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"road_trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW roadtrip NY2LA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin\": \"New York, NY\",\n  \"destination\": \"Los Angeles,CA\",\n  \"api_key\": \"ySVULKJocxN9NhyDBv6f52Dn\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/road_trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"road_trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW roadtrip NY2UK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin\": \"New York, NY\",\n  \"destination\": \"Los Angeles,CA\",\n  \"api_key\": \"ySVULKJocxN9NhyDBv6f52Dn\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/road_trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"road_trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsplash image call",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2vxceEnvUBVZgI5xxLIBTAa_7gvlGIMOtf_2pWmlcUk",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "client_id",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.unsplash.com/photos/random?query=denver, co",
+					"protocol": "https",
+					"host": [
+						"api",
+						"unsplash",
+						"com"
+					],
+					"path": [
+						"",
+						"photos",
+						"random"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "denver, co"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MQ-Geo latitude and longitude",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "LD7XXVcroSogUTyaVOGudGkaUoQCD61p",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.mapquestapi.com/geocoding/v1/address?location=denver, co",
+					"protocol": "https",
+					"host": [
+						"www",
+						"mapquestapi",
+						"com"
+					],
+					"path": [
+						"geocoding",
+						"v1",
+						"address"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "denver, co"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OW-OneCall forecast data",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "56ab0158e484c4b7db0587b0e35381cb",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "appid",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/onecall?lat=39.738453&lon=-104.984853",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"onecall"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "39.738453"
+						},
+						{
+							"key": "lon",
+							"value": "-104.984853"
+						},
+						{
+							"key": "exclude",
+							"value": null,
+							"description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces).\nAvailable values:\n\ncurrent\nminutely\nhourly\ndaily\nalerts",
+							"disabled": true
+						},
+						{
+							"key": "units",
+							"value": null,
+							"description": "Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

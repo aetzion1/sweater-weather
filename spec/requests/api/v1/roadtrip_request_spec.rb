@@ -23,6 +23,7 @@ describe "road trip API" do
       expect(session[:data][:type]).to eq('roadtrip')
       expect(session[:data][:attributes][:start_city]).to eq("Denver, CO")
       expect(session[:data][:attributes][:end_city]).to eq("Pueblo, CO")
+      expect(session[:data][:attributes][:travel_time]).to be_a(String)
       expect(session[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
       expect(session[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
@@ -50,6 +51,27 @@ describe "road trip API" do
   end
 
   describe "road trip sad paths" do
+    it "provides appropriate response for 'impossible' trips'", :vcr do
+			headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+      body = {
+        "origin": "New York, NY",
+        "destination": "London, UK",
+        "api_key": "#{@user.api_key}"
+      }
+      post '/api/v1/road_trip', params: body.to_json, headers: headers
+
+      expect(response).to be_successful
+      expect(response.status).to eq(201)
+
+      session = JSON.parse(response.body, symbolize_names: true)
+      expect(session[:data][:id]).to eq(nil)
+      expect(session[:data][:type]).to eq('roadtrip')
+      expect(session[:data][:attributes][:start_city]).to eq("New York, NY")
+      expect(session[:data][:attributes][:end_city]).to eq("London, ENG")
+      expect(session[:data][:attributes][:travel_time]).to eq("impossible")
+      expect(session[:data][:attributes][:weather_at_eta]).to eq({})
+    end
+
     it 'returns an error if header ACCEPT is missing' do 
       headers = {'CONTENT_TYPE' => 'application/json'}
       body =   {
