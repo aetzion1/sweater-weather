@@ -269,7 +269,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "2vxceEnvUBVZgI5xxLIBTAa_7gvlGIMOtf_2pWmlcUk",
+							"value": "<[YOUR_API_KEY]>",
 							"type": "string"
 						},
 						{
@@ -317,7 +317,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "LD7XXVcroSogUTyaVOGudGkaUoQCD61p",
+							"value": "<[YOUR_API_KEY]>",
 							"type": "string"
 						},
 						{
@@ -365,7 +365,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "56ab0158e484c4b7db0587b0e35381cb",
+							"value": "<[YOUR_API_KEY]>",
 							"type": "string"
 						},
 						{
