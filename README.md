@@ -65,7 +65,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 Sweater Weather is an application that allows users to plan road trips, mainly by providing access to the current weather as well as the forecasted weather at their destination.
 This is the back-end component of the service-oriented architecture. The front-end communicates with this back-end via an API. This repository exposes that API to meet the front-end requirements.
 
