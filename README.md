@@ -20,7 +20,7 @@
 
   <p align="center">
     Sweater Weather is an application that allows users to plan road trips, mainly by providing access to the current weather as well as the forecasted weather at their destination.
-    This is the back-end componnet of our service-oriented architecture. The front-end communicates with this back-end via an API. This repository exposes that API to meet the front-end requirements.
+    This is the back-end componnet of a service-oriented architecture. The front-end communicates with this back-end via an API. This repository exposes that API to meet the front-end requirements.
     <br />
     <a href="https://github.com/aetzion1/sweater-weather"><strong>Explore the docs »</strong></a>
     <br />
