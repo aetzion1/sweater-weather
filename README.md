@@ -109,16 +109,16 @@ To get a local copy up and running follow these simple steps.
   `rails db:create`
   `rails db:migrate`
 4. Register for API keys and add to application.yml
-  * [MapQuestGeocoding] (https://developer.mapquest.com/documentation/geocoding-api/) Used to get coordinates based on search criteria
-  * [OpenWeatherOneCall] (https://openweathermap.org/api/one-call-api) Used to get forecast data based on specific coordinates
-  * [Unsplash] (https://unsplash.com/documentation#creating-a-developer-account) Used to pull images based on location query paramters
+  * [MapQuestGeocoding](https://developer.mapquest.com/documentation/geocoding-api/) Used to get coordinates based on search criteria
+  * [OpenWeatherOneCall](https://openweathermap.org/api/one-call-api) Used to get forecast data based on specific coordinates
+  * [Unsplash](https://unsplash.com/documentation#creating-a-developer-account) Used to pull images based on location query paramters
 
 ## Gems worth researchin
 * [Faraday](https://github.com/lostisland/faraday)
 * [Fast JSON API](https://github.com/Netflix/fast_jsonapi)
-* [Webmock] (https://github.com/webmock/webmock)
-* [VCR] (https://github.com/vcr/vcr)
-* [Figaro] (https://github.com/laserlemon/figaro)
+* [Webmock](https://github.com/webmock/webmock)
+* [VCR](https://github.com/vcr/vcr)
+* [Figaro](https://github.com/laserlemon/figaro)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
