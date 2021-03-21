@@ -124,7 +124,7 @@ To get a local copy up and running follow these simple steps.
 ## Usage
 
 ### Endpoints
-The endpoints utilized to design this applciation can be [found_here](https://backend.turing.io/module3/projects/sweater_weather/requirements)
+The endpoints utilized to design this applciation can be found [here](https://backend.turing.io/module3/projects/sweater_weather/requirements)
 
 The [Postman](https://www.postman.com/) service can be used to test the above endpoints locally. You can import the following [pre-built_collection](https://github.com/aetzion1/sweater-weather/blob/main/sweater-weather.postman_collection.json) directly into Postman.
 
@@ -165,8 +165,8 @@ Project Link: [github.com/aetzion1/sweater-weather](https://github.com/aetzion1/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [MapQuest] (https://developer.mapquest.com/documentation/geocoding-api/)
-* [OpenWeather] (https://openweathermap.org/api/one-call-api)
+* [MapQuest](https://developer.mapquest.com/documentation/geocoding-api/)
+* [OpenWeather](https://openweathermap.org/api/one-call-api)
 * [Unsplash](https://unsplash.com/documentation#creating-a-developer-account)
 
 
