@@ -83,7 +83,6 @@ This back-end application was created with the following learning goals in mind:
   * Ruby 2.4.1
   * Rails 5.2.3
 * [RSpec]() (version 3.8.2)
-* []()
 
 <!-- GETTING STARTED -->
 ## Getting Started
